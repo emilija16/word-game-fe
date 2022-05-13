@@ -1,0 +1,16 @@
+.table {
+    margin-top:40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+thead {
+    text-align: center;
+
+}
+.table thead tr th {
+    border-bottom: 2px solid #957dad;
+}
+td {
+    text-align: center;
+}

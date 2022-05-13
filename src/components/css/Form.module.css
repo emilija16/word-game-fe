@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.btn {
+    margin-left: 10px;
+    border: 1px solid #957dad;
+    background-color: #957dad;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #856f9c;
+}
+
+.errorMessage p {
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+}
