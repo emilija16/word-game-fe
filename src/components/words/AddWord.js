@@ -2,6 +2,8 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import classes from "../css/Form.module.css";
 import { addWord } from "../../actions/words";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class AddWord extends Component {
   constructor(props) {
@@ -34,12 +36,14 @@ class AddWord extends Component {
         this.setState({
           message: response.message,
         });
+        toast.success(response.message);
       })
       .catch((error) => {
         const responseData = error.response.data;
         this.setState({
           message: responseData.message,
         });
+        toast.error(responseData.message);
       });
   }
 
@@ -63,9 +67,7 @@ class AddWord extends Component {
             </button>
           </form>
         </div>
-        <div className={classes.errorMessage}>
-          <p>{this.state.message}</p>
-        </div>
+        <ToastContainer />;
       </div>
     );
   }
