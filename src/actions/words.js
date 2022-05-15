@@ -5,7 +5,7 @@ export const addWord = (word) => async (dispatch) => {
     const res = await WordGameService.create({ word });
     dispatch({
       type: ADD_WORD,
-      payload: res.data,
+      payload: res.data.wordDTO,
     });
     return Promise.resolve(res.data);
   } catch (err) {

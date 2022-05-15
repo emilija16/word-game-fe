@@ -26,18 +26,19 @@ class AddWord extends Component {
     const { word } = this.state;
     this.props
       .addWord(word)
-      .then((data) => {
+      .then((response) => {
+        console.log(response);
         this.setState({
-          word: data.word,
+          word: "",
         });
-        console.log(data);
         this.setState({
-          message: "",
+          message: response.message,
         });
       })
-      .catch((e) => {
+      .catch((error) => {
+        const responseData = error.response.data;
         this.setState({
-          message: e.response.data,
+          message: responseData.message,
         });
       });
   }
