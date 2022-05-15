@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import classes from "./css/Form.module.css";
-import { addWord } from "../actions/words";
+import classes from "../css/Form.module.css";
+import { addWord } from "../../actions/words";
 
 class AddWord extends Component {
   constructor(props) {
@@ -31,6 +31,9 @@ class AddWord extends Component {
           word: data.word,
         });
         console.log(data);
+        this.setState({
+          message: "",
+        });
       })
       .catch((e) => {
         this.setState({
@@ -66,4 +69,5 @@ class AddWord extends Component {
     );
   }
 }
+
 export default connect(null, { addWord })(AddWord);

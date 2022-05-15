@@ -1,5 +1,5 @@
 import { ADD_WORD, RETRIEVE_WORDS } from "./type";
-import WordGameService from "../services/wordGame.service";
+import WordGameService from "../services/WordGame.service";
 export const addWord = (word) => async (dispatch) => {
   try {
     const res = await WordGameService.create({ word });

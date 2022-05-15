@@ -1,6 +1,6 @@
 import { Component } from "react";
-import classes from "./css/Table.module.css";
-import { retrieveWords } from "../actions/words";
+import classes from "../css/Table.module.css";
+import { retrieveWords } from "../../actions/words";
 import { connect } from "react-redux";
 
 class WordsList extends Component {
@@ -13,6 +13,9 @@ class WordsList extends Component {
   }
   render() {
     const { words } = this.props;
+    const wordsSortedByScore = [...words].sort((a, b) =>
+      a.score < b.score ? -1 : 1
+    );
     return (
       <div className={classes.table}>
         <table className="table table-bordered">
@@ -23,8 +26,8 @@ class WordsList extends Component {
             </tr>
           </thead>
           <tbody>
-            {words &&
-              words.map((word, index) => (
+            {wordsSortedByScore &&
+              wordsSortedByScore.map((word, index) => (
                 <tr key={index}>
                   <td>{word.word}</td>
                   <td>{word.score}</td>
